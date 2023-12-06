@@ -2,13 +2,25 @@ let products = [];
 let input = document.querySelector('.form');
 let out = document.querySelector('.out');
 let section = document.querySelector('.pro-container');
+let main = document.querySelector('main');
+let cart = []
 
-function Constructor(id, name, description, price, url) {
+
+if (products.length === 0) {
+  section.innerHTML = `<div class="spinner-border m-5" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>`
+}else {
+  display(products)
+}
+
+function Constructor(id, name, description, price, url, quantity) {
   this.id = id,
     this.name = name,
     this.description = description,
     this.price = price,
-    this.url = url
+    this.url = url,
+    this.quantity = 1
 }
 
 function search() {
@@ -76,7 +88,8 @@ function display(productList) {
                 </div>
                 <h4>${product.price}</h4>
             </div>
-            <a href="#"><i class='bx bxs-cart'></i></a>
+            <button value ='${index}' id="name"<i class='bx bxs-cart'></i></button>
+
         </div>`;
   });
 
@@ -84,4 +97,22 @@ function display(productList) {
 }
 
 display(products);
+
+const buttons = [...document.querySelectorAll('#name')]
+console.log(buttons)
+
+buttons.forEach((item, i)=>{
+  item.addEventListener('click', (e)=>{
+    e.preventDefault()
+    // console.log("Hi")
+    console.log(i)
+    let prod = products.find(product => product.id === i)
+    console.log(cart)
+
+    cart.push(prod)
+    setTimeout(()=>{
+      localStorage.setItem("cart", JSON.stringify(cart))
+    },100)
+  })
+})
 
