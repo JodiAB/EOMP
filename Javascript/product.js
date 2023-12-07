@@ -20,7 +20,7 @@ function Constructor(id, name, description, price, url, quantity) {
     this.description = description,
     this.price = price,
     this.url = url,
-    this.quantity = 1
+    this.quantity = quantity === 1
 }
 
 function search() {
