@@ -21,7 +21,7 @@ function jodi() {
                 <td><img src="${item.url}" alt=""></td>
                 <td>${item.name}</td>
                 <td>R${item.price}</td>
-                <td><input type="number" value="${item.quantity}" onchange="updateQuantity(${i}, this.value)"></td>
+                <td><input type="number" value="${item.quantity}" onchange="updQutity(${i}, this.value)"></td>
                 <td>R${item.price * item.quantity}</td>
             </tr>
         `;
@@ -40,7 +40,7 @@ function jodi() {
 }
 
 // Function to update the quantity of an item in the cart
-function updateQuantity(index, newQuantity) {
+function updQutity(index, newQuantity) {
     // Update the quantity in the cart array
     purchased[index].quantity = parseInt(newQuantity);
     // Update the cart in local storage
@@ -75,11 +75,11 @@ window.addEventListener('load', () => {
 });
 
 // Get reference to the purchase button
-const purchaseButton = document.querySelector('.purchase');
+const BuyButton = document.querySelector('.purchase');
 
 // Event listener for the purchase button
-if (purchaseButton) {
-    purchaseButton.addEventListener('click', () => {
+if (BuyButton) {
+    BuyButton.addEventListener('click', () => {
         // Add logic related to the purchase action here
         alert('Thank you for your purchase!');
         // Clear the cart and update the displayed cart

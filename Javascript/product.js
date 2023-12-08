@@ -28,11 +28,11 @@ function Constructor(id, name, price, url, quantity) {
 
 // Function to search for products based on user input
 function search() {
-  let searchValue = input.value.toLowerCase();
-  let filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchValue));
+  let searVal = input.value.toLowerCase();
+  let filteredPro = products.filter(product => product.name.toLowerCase().includes(searVal));
 
-  if (filteredProducts.length > 0) {
-    display(filteredProducts);
+  if (filteredPro.length > 0) {
+    display(filteredPro);
     out.textContent = '';
   } else {
     section.innerHTML = '';
@@ -41,10 +41,10 @@ function search() {
 }
 
 // Function to sort and display products alphabetically
-function sortProducts() {
-  let sortedProducts = [...products];
-  sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
-  display(sortedProducts);
+function sortProd() {
+  let sortedProd = [...products];
+  sortedProd.sort((a, b) => a.name.localeCompare(b.name));
+  display(sortedProd);
 }
 
 // Event listeners for search and sort buttons
@@ -52,7 +52,7 @@ let searchBtn = document.getElementById('searchBtn');
 searchBtn.addEventListener('click', search);
 
 let sortBtn = document.getElementById('sortBtn');
-sortBtn.addEventListener('click', sortProducts);
+sortBtn.addEventListener('click', sortProd);
 
 // Create instances of the Constructor to represent different products
 let item = new Constructor(0, 'Graphic Tee:', 150, 'https://i.postimg.cc/3JTgF62R/f1.jpg');
