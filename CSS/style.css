@@ -260,11 +260,6 @@ background-color: bisque;
     border-radius: 20px;
 }
 
-#product1 .pro .des{
-    text-align: start;
-    padding: 10px 0;
-}
-
 #product1 .pro .des span{
 color: #606063;
 font-size: 12px;
@@ -303,6 +298,7 @@ font-size: 12px;
     bottom: 20px;
     right: 10px;
 }
+
 
 
 /* cart */
@@ -461,12 +457,6 @@ tr:nth-child(even), table.catelog thread> tr{
     background-color: grey;
 }
 
-.des{
-    display: flex;
-    align-items: center;
-    text-align: center; 
-    justify-content: center;
-}
 
 
 .contact-form {
@@ -512,5 +502,17 @@ textarea {
     text-align: center;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+button .clear {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-left: 50%;
+}
+
+.bx-x-circle{
     cursor: pointer;
 }

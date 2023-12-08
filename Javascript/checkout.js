@@ -1,42 +1,89 @@
-let purchased = JSON.parse(localStorage.getItem('cart'))
-const body = document.querySelector("#body")
-console.log(purchased)
+// Retrieve the cart items from local storage or initialize an empty array
+let purchased = JSON.parse(localStorage.getItem('cart')) || [];
 
-let money = purchased.map((e)=>{
-    return e.price
-})
-console.log(money)
+// Get reference to the HTML body element and the clear button
+const body = document.querySelector("#body");
+const clear = document.getElementById("clear");
 
-let cash = money.reduce((acc, e)=>{
-    return acc + e
-})
-console.log(cash)
+// Function to update the displayed cart items
+function jodi() {
+    // Clear the existing content in the body
+    body.innerHTML = "";
 
-let test = purchased.map((e)=>{
-    console.log([e.quantity])
-    return e.quantity
-})
+    // Initialize the total cost variable
+    let total = 0;
 
-let res = test.reduce((a, e)=>{
-    return a + e
-})
-console.log(res)
-function jodi(){
-    purchased.forEach((item, i)=>{
+    // Loop through each item in the cart and display its details
+    purchased.forEach((item, i) => {
         body.innerHTML += `
-        <tr>
-        <td><i class='bx bx-x-circle'></i><a href="#"></a></td>
-        <td><img src="${item.url}" alt=""></td>
-            <td>${item.name}</td>
-            <td>R${item.price}</td>
-            <td><input type="number" >${item.quantity}</td>
-            <td>${item.quantity * item.price}</td>
-            <td></td>
-            <td>${cash * res/2}</td>
-        
+            <tr>
+                <td><i class='bx bx-x-circle' onclick="dltItem(${i})"></i><a href="#"></a></td>
+                <td><img src="${item.url}" alt=""></td>
+                <td>${item.name}</td>
+                <td>R${item.price}</td>
+                <td><input type="number" value="${item.quantity}" onchange="updateQuantity(${i}, this.value)"></td>
+                <td>R${item.price * item.quantity}</td>
             </tr>
-        `
-    })
+        `;
+
+        // Update the total cost with the current item's cost
+        total += item.price * item.quantity;
+    });
+
+    // Display the total cost row at the end
+    body.innerHTML += `
+        <tr>
+            <td colspan="5">Total:</td>
+            <td>R${total}</td>
+        </tr>
+    `;
 }
 
-jodi()
+// Function to update the quantity of an item in the cart
+function updateQuantity(index, newQuantity) {
+    // Update the quantity in the cart array
+    purchased[index].quantity = parseInt(newQuantity);
+    // Update the cart in local storage
+    localStorage.setItem('cart', JSON.stringify(purchased));
+    // Update the displayed cart
+    jodi();
+}
+
+// Function to delete an item from the cart
+function dltItem(index) {
+    // Remove the item from the cart array
+    purchased.splice(index, 1);
+    // Update the cart in local storage
+    localStorage.setItem('cart', JSON.stringify(purchased));
+    // Update the displayed cart
+    jodi();
+}
+
+// Event listener for the clear button
+clear.addEventListener("click", () => {
+    // Remove the cart from local storage
+    localStorage.removeItem('cart');
+    // Clear the displayed cart
+    body.innerHTML = "";
+});
+
+// Event listener when the window is loaded
+window.addEventListener('load', () => {
+    // Retrieve the cart from local storage and display it
+    purchased = JSON.parse(localStorage.getItem('cart')) || [];
+    jodi();
+});
+
+// Get reference to the purchase button
+const purchaseButton = document.querySelector('.purchase');
+
+// Event listener for the purchase button
+if (purchaseButton) {
+    purchaseButton.addEventListener('click', () => {
+        // Add logic related to the purchase action here
+        alert('Thank you for your purchase!');
+        // Clear the cart and update the displayed cart
+        localStorage.removeItem('cart');
+        body.innerHTML = "";
+    });
+}
