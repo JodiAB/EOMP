@@ -56,7 +56,21 @@ sortBtn.addEventListener('click', sortProd);
 
 // Create instances of the Constructor to represent different products
 let item = new Constructor(0, 'Graphic Tee:', 150, 'https://i.postimg.cc/3JTgF62R/f1.jpg');
-// ... (similar lines for other items)
+let item1 = new Constructor(1, 'Nomads Embrace Shirt', 300, 'https://i.postimg.cc/7LbHmVN5/f2.jpg');
+let item2 = new Constructor(2, 'Ethereal Essence Tee',  250, 'https://i.postimg.cc/t4kdhXrX/f3.jpg');
+let item3 = new Constructor(3, 'Floral Print Blouse: ', 325, 'https://i.postimg.cc/4x27fnLh/f4.jpg');
+let item4 = new Constructor(4, 'Timeless Elegance Tee', 175, 'https://i.postimg.cc/25dsdLs1/f5.jpg');
+let item5 = new Constructor(5, 'Striped Oxford Shirt', 200, 'https://i.postimg.cc/xTWhWPYk/f6.jpg');
+let item6 = new Constructor(6, 'Aurora Allure Tee', 150, 'https://i.postimg.cc/3NkfqkcC/f7.jpg');
+let item7 = new Constructor(7, 'Bohemian-inspired Peasant Blouse',  325, 'https://i.postimg.cc/wBFWT5KQ/f8.jpg');
+let item8 = new Constructor(8, 'Linen Button-Up Shirt: ', 310, 'https://i.postimg.cc/qR5j2kvt/n1.jpg');
+let item9 = new Constructor(9, 'Classic White Button-Down Shirt:', 260, 'https://i.postimg.cc/GmRw4jfW/n2.jpg');
+let item10 = new Constructor(10, 'Prism Panache Shirt', 240, 'https://i.postimg.cc/SQYwV5b0/n3.jpg');
+let item12 = new Constructor(12, 'Chambray Denim Shirt', 175, 'https://i.postimg.cc/5Nnqz4Kf/n4.jpg');
+let item13 = new Constructor(13, 'Metro Maven Blouse', 270, 'https://i.postimg.cc/J46ZnTtn/n5.jpg');
+let item14 = new Constructor(14, 'Comfort Stretch Cotton Chinos: ', 110, 'https://i.postimg.cc/ydySzjw7/n6.jpg');
+let item15 = new Constructor(15, 'Frontier Fusion Polo', 240, 'https://i.postimg.cc/mDjhnDHD/n7.jpg');
+let item16 = new Constructor(16, 'Mountain Majesty Shirt', 300, 'https://i.postimg.cc/gkQjQ1nv/n8.jpg');
 
 // Add products to the products array
 products.push(item, item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item12, item13, item14, item15, item16);
